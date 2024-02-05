@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<style>
+		    #listWithHandle {
+		        column-count: 4;
+		        column-gap: 20px; /* Adjust the gap as needed */
+		    }
+		</style>
+	</head>
+
+	<body>
+		<h1> Handpan Library </h1>
+
+		<h2> Scales </h2>
+		<div id="scalediv">
+		    <ul id="listWithHandle">
+		        {% for scale in scales %}
+		            <li>
+		                <a href="/scale/{{ scale }}">{{ scale }}</a>
+		            </li>
+		        {% endfor %}
+		    </ul>
+		</div>
+
+		<h2> Add song </h2>
+		<a href="/manage"> manage </a>
+
+</html> 

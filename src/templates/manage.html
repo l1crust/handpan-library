@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			form.form-example {
+			  display: table;
+			}
+
+			div.form-example {
+			  display: table-row;
+			}
+
+			label,
+			input {
+			  display: table-cell;
+			  margin-bottom: 10px;
+			}
+
+			label {
+			  padding-right: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<a href="/"> Home </a>
+
+		<h1> Add new song </h1>
+
+		<p> to add a youtube video, click on share and get the link here. Otherwise it might now display correctly
+		<form action="#" method= "post" id=form1 class="form-example">
+		  <div class="form-example">
+		    <label for="link"> Id of Youtube video: </label>
+		    <input type="text" name="link" id="link" required />
+		  </div>
+		  <div class="form-example">
+			<label for="scales">Choose a scale:</label>
+		  	<input type="text" name="scales" id="scales" />
+		  </div>
+		  <div class="form-example"> 
+		  	<label for="notes"> Notes : </label>
+		  	<input type="text" name="notes" id="notes" />
+		  </div>
+		  <div class="form-example"> 
+		   	<label for="tags"> Tags (separated by ;): </label>
+		  	<input type="text" name="tags" id="tags" />
+		  </div>
+
+		  <div class="form-example">
+		    <input type="submit" value="Save" />
+		  </div>
+		</form>
+	</body>
+</html> 
