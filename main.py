@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request
-from store import save_youtube_to_csv, save_to_csv, get_scales_from_csv, get_entries_for_scale
+from store import save_youtube_to_csv, save_to_csv, get_scales_from_folder, get_entries_for_scale
 
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-	scales = get_scales_from_csv()
+	scales = get_scales_from_folder()
 	return render_template('index.html', scales=scales)
 
 @app.route('/manage', methods=['GET', 'POST'])
