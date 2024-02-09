@@ -1,6 +1,6 @@
 import csv
 import os
-
+import urllib.parse
 
 def youtube_id_to_url(videoId):
 	if videoId.isalnum():
@@ -35,7 +35,7 @@ def get_scales_from_csv(filename='music_data.csv'):
     with open(filename, mode='r') as file:
         reader = csv.reader(file)
         for row in reader:
-            scales.add(row[1])  # Assuming scale is stored in the second column
+            scales.add(row[1].strip().lower())  # Assuming scale is stored in the second column
     orderedScales = sorted(list(scales))
     return orderedScales
 
@@ -43,13 +43,14 @@ def get_scales_from_csv(filename='music_data.csv'):
 def get_entries_for_scale(scale, folder='data'):
     entries = []
     files = os.listdir(folder)
+    decodedScale=urllib.parse.unquote_plus(scale).strip().lower()
     for file in files:
         filename = folder + "/" + file
         if os.path.isfile(filename):
             with open(filename, mode='r') as file:
                 reader = csv.reader(file)
                 for row in reader:
-                    if row[1] == scale:  # Check if the scale matches
+                    if row[1].strip().lower() == decodedScale:  # Check if the scale matches
                         entries.append({
                             'link': row[0],
                             'scale': row[1],
